@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic%22");
+.text-a {
+  position: relative;
+  font-family: "Poppins";
+  font-size: 18px;
+  line-height: 15px;
+  color: white;
+  text-align: start;
+  font-weight: 500;
+  width: 600px;
+}
+.text-b {
+  position: relative;
+  font-family: "Poppins";
+  font-size: 12px;
+  line-height: 20px;
+  color: white;
+  text-align: start;
+}
+.title-menu-1 {
+  position: relative;
+  font-family: "Poppins";
+  font-size: 35px;
+  color: white;
+  text-align: start;
+  text-decoration: none;
+  margin-top: 100px;
+}
+
+.title-menu-2 {
+  position: relative;
+  font-family: "Poppins";
+  font-size: 15px;
+  color: white;
+  text-align: start;
+  line-height: 30px;
+  top: 40px;
+  text-decoration: none;
+}
+.title-menu-2:hover {
+  text-decoration: underline;
+  color: white;
+}
+.logoFooter {
+  position: relative;
+  width: 140%;
+  margin-bottom: -22px;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
