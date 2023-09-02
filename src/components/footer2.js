@@ -2,11 +2,12 @@ import "./styles.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import logoImage from '../scss/img/logo.png'
-
+import { Link } from "react-router-dom"; // Импортируем Link
 export default function App() {
-    const iconStyle = {
-        width: "35px", // Укажите желаемую ширину
-        height: "35px", // Укажите желаемую высоту
+    const StyleFont = {
+      color: "white", 
+      textDecoration: "none", 
+      marginBottom: "10px"
       };
     const socialSites = [
         {
@@ -47,7 +48,7 @@ export default function App() {
           /></a> 
   <div className="text-a">
             <a
-              href="igispro.kgz@gmail.com"
+              href="mailto:igispro.kgz@gmail.com"
               style={{ color: "white", textDecoration: "none", marginBottom: "10px" }}
             >
               <p> igispro.kgz@gmail.com</p>
@@ -69,12 +70,12 @@ export default function App() {
           <h5 className="title-menu-1">Меню</h5>
           <ul className="nav flex-column">
             <li className="nav-item mb-2">
-              <a href="https://www.leaz.co/" className="title-menu-2">
-                Accueil
-              </a>
+            <Link to="/portfolioPage/1" style={StyleFont} className="social-link rounded-circle text-white mr-3">
+                     Наши Проекты
+    </Link>
             </li>
             <li className="nav-item mb-2">
-              <a href="https://www.leaz.co/faq/" className="title-menu-2">
+              <a href="https://www.leaz.co/faq/"   style={StyleFont} className="title-menu-2">
                 О нас
               </a>
             </li>

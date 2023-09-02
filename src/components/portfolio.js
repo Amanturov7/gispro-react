@@ -38,15 +38,15 @@ const PortfolioSection = () => {
         <div className="row no-gutters">
           {lastFourProjects.map((project, index) => (
             <div
-              className={`col-lg-6 ${animate ? "fade-in visible" : "fade-in"}`}
-              key={`portfolio_item_${index}`}
-              onClick={() => redirectToPortfolioPage(index)}
-            >
+  className={`col-lg-6 ${animate ? "fade-in visible" : "fade-in"}`}
+  key={`portfolio_item_${index}`}
+  onClick={() => redirectToPortfolioPage(project.id)} // Здесь передаем projectId
+>
               <div className="portfolio-item">
                 <span className="caption">
                   <span className="caption-content">
-                    <h2>{project.heading}</h2>
-                    <p className="mb-0">{project.description}</p>
+                    <h2>{project.title}</h2>
+                    {/* <p className="mb-0">{project.title}</p> */}
                   </span>
                 </span>
                 <img className="img-fluid" src={project.imgSrc} alt="" />

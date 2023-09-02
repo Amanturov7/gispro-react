@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic%22");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css");
+@import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
+.project-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 300px;
+  margin-bottom: 200px;
+}
+
+  
+  .project-item {
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    transition: background-color 0.2s ease-in-out;
+    
+  }
+  
+  .project-item:hover {
+    border-radius: 5px;
+  }
+  
+ 
+  .activeList {
+    color: white;
+    background-color: #044883;
+    border-radius: 5px;
+  }
+  .project-list ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы слева */
+  }
