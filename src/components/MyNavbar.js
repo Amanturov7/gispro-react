@@ -25,8 +25,8 @@ const MyNavbar = () => {
       <Nav className="navbar-nav ml-auto mx-auto text-center navbar-links js-scroll-trigger" >
         <Nav.Link href="/#about" className="js-scroll-trigger">О нас</Nav.Link>
         <Nav.Link href="/#services" className="js-scroll-trigger">Услуги</Nav.Link>
-        <Nav.Link href="/#contact" className="js-scroll-trigger">Связаться</Nav.Link>
         <Nav.Link href="/#portfolio" className="js-scroll-trigger">Портфолио</Nav.Link>
+        <Nav.Link href="/#contact" className="js-scroll-trigger">Связаться</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

@@ -24,7 +24,25 @@
   color: white;
   text-align: start;
   text-decoration: none;
-  margin-top: 100px;
+}
+/* .menu-container {
+  margin-left: 10px; /* Подвигаем меню левее */
+
+
+/* Уменьшим высоту футера */
+footer {
+  padding-top: 100px;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+/* Уменьшим размер шрифта в меню */
+.title-menu-1,
+.title-menu-2 {
+  font-size: 18px;
+
 }
 
 .title-menu-2 {
@@ -34,7 +52,7 @@
   color: white;
   text-align: start;
   line-height: 30px;
-  top: 40px;
+  top: 10px;
   text-decoration: none;
 }
 .title-menu-2:hover {

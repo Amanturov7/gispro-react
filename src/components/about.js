@@ -4,9 +4,9 @@ import { animateScroll as scroll } from "react-scroll";
 function AboutSection() {
   const [animate, setAnimate] = useState(false);
 
-  const scrollToServices = () => {
-    scroll.scrollTo("services");
-  };
+  // const scrollToServices = () => {
+  //   scroll.scrollTo("portfolio");
+  // };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +30,7 @@ function AboutSection() {
             <h2>
               GisPro – это многопрофильная компания,
               специализирующийся в направлениях как ГИС технологии, а также ИТ
-              технологии.
+              технологии
             </h2>
             <p className={`lead mb-5 fade-in ${animate ? "visible" : ""}`}>
               На сегодняшний день наша компания разрабатывает и реализует
@@ -38,16 +38,16 @@ function AboutSection() {
               специалистов. Структура нашей компании дает возможность
               оказывать своим партнерам весь спектр услуг, от разработки
               концепции объекта, его проектирования, моделирования в полном
-              комплекте для реализации на результат.
+              комплекте для реализации на результат
             </p>
-            <button
+            {/* <button
               className={`btn btn-dark btn-lg js-scroll-trigger fade-in ${
                 animate ? "visible" : ""
               }`}
               onClick={scrollToServices}
             >
               Почему мы?
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

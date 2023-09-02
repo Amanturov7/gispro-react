@@ -9,6 +9,11 @@ export default function App() {
       textDecoration: "none", 
       marginBottom: "10px"
       };
+      const StyleA = {
+        color: "white",
+        textDecoration: "none",
+        marginBottom: "10px"
+      }
     const socialSites = [
         {
           link: "https://twitter.com/cincinnaticodes",
@@ -33,11 +38,10 @@ export default function App() {
         Height: "20px",
         paddingLeft: "100px",
         paddingRight: "100px",
-        paddingTop: "50px",
-        paddingBottom: "50px",
+        paddingTop: "80px",
       }}
     >
-      <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5  border-top" >
         <div className="col mb-3">
          <a href="/">
          <img
@@ -46,36 +50,13 @@ export default function App() {
             style={{width: "200px", marginBottom: "100px"
         }}
           /></a> 
-  <div className="text-a">
-            <a
-              href="mailto:igispro.kgz@gmail.com"
-              style={{ color: "white", textDecoration: "none", marginBottom: "10px" }}
-            >
-              <p> igispro.kgz@gmail.com</p>
-            </a>
-
-            <p> ул. Токтоналиева 4Б, 2 эт., каб 1 </p>
-
-            <p> г. Бишкек</p>
-          </div>
-
-      <p style={{color: "white", fontSize: "11px" }} className="3">
-        Copyright &copy; Gispro company 2023
-      </p>
         </div>
-
-        <div className="col mb-4"></div>
-
-        <div className="col mb-4">
+        <div className="col mb-4 ">
           <h5 className="title-menu-1">Меню</h5>
           <ul className="nav flex-column">
+
             <li className="nav-item mb-2">
-            <Link to="/portfolioPage/1" style={StyleFont} className="social-link rounded-circle text-white mr-3">
-                     Наши Проекты
-    </Link>
-            </li>
-            <li className="nav-item mb-2">
-              <a href="https://www.leaz.co/faq/"   style={StyleFont} className="title-menu-2">
+              <a href="https://www.leaz.co/faq/"   className="title-menu-2">
                 О нас
               </a>
             </li>
@@ -90,35 +71,53 @@ export default function App() {
         <div className="col mb-4">
           <h5 className="title-menu-1">Информации</h5>
           <ul className="nav flex-column">
-            <li className="nav-item mb-2">
-              <a href="#" className="title-menu-2">
-                CGU Leaz
+            <li className="nav-item mb-2" >
+              <a href="#" className="title-menu-2" >
+                Новости
               </a>
             </li>
             <li className="nav-item mb-2">
               <a href="#" className="title-menu-2">
-                Mentions légales
+                Вакансии
               </a>
             </li>
             <li className="nav-item mb-2">
               <a href="#" className="title-menu-2">
-                Politique de confidentialité
+                Статьи
               </a>
             </li>
           </ul>
         </div>
+
         <div className="col mb-4">
-        <ul className="list-inline mb-5">
-      {socialSites.map((site,index)=>(
-        <li className="list-inline-item" key={`social_${index}`}>
-          <a className="social-link rounded-circle text-white mr-3" href={site.link}>
-            <i className={site.icon} />
-          </a>
-        </li>
-      ))}
-      </ul>
-    
+          <h5 className="title-menu-1">Контакты</h5>
+          <ul className="nav flex-column">
+            <li className="nav-item mb-2">
+            <a className="title-menu-2"
+              href="mailto:igispro.kgz@gmail.com"
+            >
+              <p> igispro.kgz@gmail.com</p>
+            </a>
+            </li>
+            <li className="nav-item mb-2">
+              <a href="https://2gis.kg/bishkek/geo/15763234351132482?m=74.593827%2C42.851893%2F16" className="title-menu-2">
+              ул. Токтоналиева 4Б, 2 эт., каб 1 
+              </a>
+            </li>
+            <li className="nav-item mb-2">
+              <p className="title-menu-2">г. Бишкек</p>
+            </li>
+          </ul>
         </div>
+        <ul className="list-inline mb-5">
+              {socialSites.map((site, index) => (
+                <li className="list-inline-item" key={`social_${index}`}>
+                  <a className="social-link rounded-circle text-white mr-3" href={site.link}>
+                    <i className={site.icon} />
+                  </a>
+                </li>
+              ))}
+            </ul>
       </footer>
     </div>
   );
