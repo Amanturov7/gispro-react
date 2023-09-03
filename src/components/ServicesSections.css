@@ -1,0 +1,10 @@
+/* ServicesSections.css */
+.service-block {
+    position: relative;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+  
+  .service-block:hover {
+    transform: scale(1.3); /* Increase the size of the service block when hovered */
+  }
+  

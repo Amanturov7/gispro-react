@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import PortfolioPage from './Portfolio/PortfolioPage';
 import PortfolioDetails from './Portfolio/component/PortfolioDetails';
+import ServicesPage from './Services/ServicesPage'; // Import the ServicesPage component
 import { BrowserRouter as Router, Routes, Route as MyRoute } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
@@ -17,6 +18,7 @@ root.render(
   <MyRoute path="/" element={<App />} /> {/* Главная страница */}
   <MyRoute path="/portfolioPage" element={<PortfolioPage />} /> {/* Основная страница портфолио */}
   <MyRoute path="/portfolioPage/:projectId" element={<PortfolioDetails />} /> {/* Детали проекта */}
+  <MyRoute path="/servicesPage/*" element={<ServicesPage />} /> {/* Add this route */}
 </Routes>
 
 </Router>
