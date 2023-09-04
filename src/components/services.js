@@ -4,6 +4,15 @@ import ServicesOffered from '../data/services.json';
 import vectorIcon from '../scss/img/vectorIcon.png';
 import digitalmapIcon from '../scss/img/digitalmapIcon.png';
 import GeodesistIcon from '../scss/img/geodesitIcon.png';
+import WevDevIcon from '../scss/img/webDev.png';
+import threedIcon from '../scss/img/3dIcon.png';
+import consultIcon from '../scss/img/consultIcon.png';
+import treningIcon from '../scss/img/treningIcon.png';
+import supportIcon from '../scss/img/supportIcon.png';
+
+
+
+
 import './ServicesSections.css'; // Import the CSS file
 
 const ServicesSections = () => {
@@ -53,7 +62,12 @@ const ServicesSections = () => {
                   />
                 )}
                 {service.id === 3 && (
-                  <i className="fas fa-cube service-icon-img"></i>
+                   <img
+                   src={threedIcon}
+                   alt={service.title}
+                   className="service-icon-img"
+                   style={{ maxWidth: service.maxWidth }}
+                 />
                 )}
                 {service.id === 4 && (
                   <img
@@ -64,7 +78,36 @@ const ServicesSections = () => {
                   />
                 )}
                 {service.id === 5 && (
-                  <i className="fas fa-globe service-icon-img"></i>
+                 <img
+                 src={WevDevIcon}
+                 alt={service.title}
+                 className="service-icon-img"
+                 style={{ maxWidth: service.maxWidth }}
+               />
+                )}
+                 {service.id === 6 && (
+                 <img
+                 src={consultIcon}
+                 alt={service.title}
+                 className="service-icon-img"
+                 style={{ maxWidth: service.maxWidth }}
+               />
+                )}
+                 {service.id === 7 && (
+                 <img
+                 src={supportIcon}
+                 alt={service.title}
+                 className="service-icon-img"
+                 style={{ maxWidth: service.maxWidth }}
+               />
+                )}
+                 {service.id === 8 && (
+                 <img
+                 src={treningIcon}
+                 alt={service.title}
+                 className="service-icon-img"
+                 style={{ maxWidth: service.maxWidth }}
+               />
                 )}
                 {/* Add more conditions for other services */}
               </span>
