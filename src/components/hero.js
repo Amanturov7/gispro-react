@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
 import "./hero.css";
-import img1 from "../scss/img/bg-callout.jpg";
-import img2 from "../scss/img/bg-callout.jpg";
+import img1 from "../scss/img/Сarousel1.jpg";
+import img2 from "../scss/img/Сarousel2.jpg";
 
 // const ItemLink = ({ title, desc, url, image }) => (
 //   <a className="links-container__link" href={url}>
@@ -27,13 +27,15 @@ function ControlledCarousel() {
       activeIndex={index}
       onSelect={handleSelect}
       className="slideshow-container"
+      
     >
-      <Carousel.Item>
-        <img className="d-block w-100" src={img1} alt="First Img" />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={img2} alt="Second Img" />
-      </Carousel.Item>
+    <Carousel.Item>
+  <img className="d-block w-100" src={img1} alt="First Img" style={{ objectFit: 'cover' }} />
+</Carousel.Item>
+<Carousel.Item>
+  <img className="d-block w-100" src={img2} alt="Second Img" style={{ objectFit: 'cover' }} />
+</Carousel.Item>
+
       {/* <Carousel.Item>
         <img className="d-block w-100" src={img1} alt="First Img" />
       </Carousel.Item>

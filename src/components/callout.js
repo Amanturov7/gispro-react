@@ -33,8 +33,7 @@ const CalloutSection = ({ display, setDisplay }) => {
 };
 
 const SeeForm = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const { errors } = useForm();
   console.log(errors);
 
   return (

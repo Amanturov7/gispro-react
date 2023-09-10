@@ -1,7 +1,7 @@
 import MyNavbar from "./components/MyNavbar";
 import AboutSection from "./components/about";
 import ServicesSections from "./components/services";
-import ContactForm from "./components/callout";
+import FeedbackForm from "./components/FeedbackForm";
 import PortfolioSection from "./components/portfolio";
 import FooterSection from "./components/footer2";
 import MainHero from "./components/MainHero";
@@ -17,7 +17,7 @@ function App() {
         <ServicesSections />
         <PortfolioSection />
         <Hero />
-        <ContactForm />
+        <FeedbackForm />
         <FooterSection />
 </div>
   );

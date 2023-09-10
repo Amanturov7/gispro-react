@@ -48,14 +48,14 @@ const PortfolioDetails = () => {
       <h4>Работы:</h4>
       <ul>
         {selectedProject.works.split(';').map((work, index) => (
-          <li key={index} className="work-item">
+          <li key={index} className="work-item" style={{ listStyleType: 'disc', marginLeft: "20px" }}>
             {work.trim()}
           </li>
         ))}
       </ul>
     </div>
   )}
-   <a className="project-link" href={selectedProject.url} target="_blank" rel="noopener noreferrer">
+   <a className="project-link" href={selectedProject.url} target="_blank" rel="noopener noreferrer" style={{ marginTop: "50px"}}>
             Посмотреть карты
           </a>
         </div>

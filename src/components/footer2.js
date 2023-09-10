@@ -2,18 +2,8 @@ import "./styles.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import logoImage from '../scss/img/logo.png'
-import { Link } from "react-router-dom"; // Импортируем Link
 export default function App() {
-    const StyleFont = {
-      color: "white", 
-      textDecoration: "none", 
-      marginBottom: "10px"
-      };
-      const StyleA = {
-        color: "white",
-        textDecoration: "none",
-        marginBottom: "10px"
-      }
+
     const socialSites = [
         {
           link: "https://twitter.com/cincinnaticodes",
@@ -49,6 +39,7 @@ export default function App() {
             src={logoImage}
             style={{width: "200px", marginBottom: "100px"
         }}
+        alt="Описание изображения"
           /></a> 
         </div>
         <div className="col mb-4 ">
@@ -61,7 +52,7 @@ export default function App() {
               </a>
             </li>
             <li className="nav-item mb-2">
-              <a href="#" className="title-menu-2">
+              <a href="/" className="title-menu-2">
                 Карты
               </a>
             </li>
@@ -72,17 +63,17 @@ export default function App() {
           <h5 className="title-menu-1">Информации</h5>
           <ul className="nav flex-column">
             <li className="nav-item mb-2" >
-              <a href="#" className="title-menu-2" >
+              <a href="/" className="title-menu-2" >
                 Новости
               </a>
             </li>
             <li className="nav-item mb-2">
-              <a href="#" className="title-menu-2">
+              <a href="/" className="title-menu-2">
                 Вакансии
               </a>
             </li>
             <li className="nav-item mb-2">
-              <a href="#" className="title-menu-2">
+              <a href="/" className="title-menu-2">
                 Статьи
               </a>
             </li>
