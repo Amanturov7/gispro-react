@@ -22,8 +22,11 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    max-width: 70%; /* Ширина контейнера с контентом (можете изменить на свое усмотрение) */
-  }
+    width: 100%; /* Фиксированная ширина */
+    max-width: 1000px; /* Максимальная ширина для больших экранов */
+    margin: 0 auto; /* Центрирование блока */
+}
+
   
   
 /* Стили для мобильных устройств */
@@ -82,3 +85,52 @@
 
   }
   
+
+
+
+
+  .toggle-container {
+    padding: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle-label {
+    margin-right: 10px;
+}
+
+
+.toggle-label.light {
+    color: #000;
+}
+
+.toggle-button {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.toggle-button.dark {
+    background-color: #0056b3;
+}
+
+.toggle-circle {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translate(0, -50%);
+    width: 21px;
+    height: 21px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-circle.dark {
+    background-color: #fff;
+    transform: translate(25px, -50%);
+}
