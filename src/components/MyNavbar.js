@@ -27,6 +27,8 @@ const MyNavbar = () => {
         <Nav.Link href="/#services" className="js-scroll-trigger">Услуги</Nav.Link>
         <Nav.Link href="/#portfolio" className="js-scroll-trigger">Портфолио</Nav.Link>
         <Nav.Link href="/#contact" className="js-scroll-trigger">Связаться</Nav.Link>
+        <Nav.Link href="/geoportal" className="js-scroll-trigger">Гео Портал</Nav.Link>
+
       </Nav>
     </Navbar.Collapse>
   </Navbar>

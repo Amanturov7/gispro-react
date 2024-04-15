@@ -8,6 +8,7 @@ import ServicesPage from './Services/ServicesPage'; // Import the ServicesPage c
 import { BrowserRouter as Router, Routes, Route as MyRoute } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
+import GeoPortal from './maps/GeoPortal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,8 @@ root.render(
   <MyRoute path="/portfolioPage" element={<PortfolioPage />} /> {/* Основная страница портфолио */}
   <MyRoute path="/portfolioPage/:projectId" element={<PortfolioDetails />} /> {/* Детали проекта */}
   <MyRoute path="/servicesPage/*" element={<ServicesPage />} /> {/* Add this route */}
+  <MyRoute path="/geoportal/" element={<GeoPortal />} /> {/* Add this route */}
+
 </Routes>
 
 </Router>
