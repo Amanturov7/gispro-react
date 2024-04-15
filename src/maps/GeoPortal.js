@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'ol/ol.css';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
@@ -10,16 +10,17 @@ import "./GeoPortal.css";
 
 const GeoPortal = () => {
     const [darkMap, setDarkMap] = useState(false);
-    const [mapLayers, setMapLayers] = useState([]);
     const [selectedSource, setSelectedSource] = useState('');
+    const [selectedLayers, setSelectedLayers] = useState([]);
     const [layerVisibility, setLayerVisibility] = useState({});
+
+    const mapRef = useRef(null); // Ссылка на карту
 
     // Информация об источниках данных WMS
     const wmsSources = {
         'http://planting.caiag.kg/cgi-bin/mapserv.cgi?map=wms.map': ['aimak_en', 'plantedpointadm', 'oblast_en', 'plantinglot'],
         'http://localhost/geoserver/geonode/wms': ['geonode:batken', 'layer2', 'layer3'],
         'https://kyrgyzstan.sibelius-datacube.org:5000/': ['ModisAnomaly','ModisRGB']
-
     };
 
     useEffect(() => {
@@ -29,35 +30,12 @@ const GeoPortal = () => {
     }, [selectedSource]);
 
     useEffect(() => {
-        updateWmsLayers();
-    }, [darkMap]);
+        updateLayerVisibility();
+    }, [selectedLayers, layerVisibility]);
 
     const fetchLayers = async (source) => {
         const layers = wmsSources[source];
-        const baseLayer = darkMap ?
-            new TileLayer({
-                source: new OSM({
-                    url: 'https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-                }),
-            }) :
-            new TileLayer({
-                source: new OSM(),
-            });
-
-        const newMapLayers = [
-            baseLayer,
-            ...(layers ? layers.map(layerName => (
-                new TileLayer({
-                    source: new TileWMS({
-                        url: source,
-                        params: { 'LAYERS': layerName, 'TILED': true },
-                        serverType: 'geoserver'
-                    }),
-                })
-            )) : [])
-        ];
-
-        setMapLayers(newMapLayers);
+        setSelectedLayers(layers);
 
         const initialVisibility = layers.reduce((acc, layerName) => {
             acc[layerName] = true;
@@ -65,20 +43,50 @@ const GeoPortal = () => {
         }, {});
         setLayerVisibility(initialVisibility);
 
-        const map = new Map({
-            target: 'map',
-            layers: newMapLayers,
-            view: new View({
-                center: fromLonLat([74.585901, 41.20438]),
-                zoom: 7,
-                maxZoom: 16,
-                minZoom: 5,
-            }),
+        // Если карта еще не создана, создаем ее
+        if (!mapRef.current) {
+            const baseLayer = darkMap ?
+                new TileLayer({
+                    source: new OSM({
+                        url: 'https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+                    }),
+                }) :
+                new TileLayer({
+                    source: new OSM(),
+                });
+
+            const map = new Map({
+                target: 'map',
+                layers: [baseLayer],
+                view: new View({
+                    center: fromLonLat([74.585901, 41.20438]),
+                    zoom: 7,
+                    maxZoom: 16,
+                    minZoom: 5,
+                }),
+            });
+
+            mapRef.current = map;
+        }
+
+        // Удаляем все слои WMS
+        const map = mapRef.current;
+        map.getLayers().forEach(layer => {
+            if (layer instanceof TileLayer && layer.getSource() instanceof TileWMS) {
+                map.removeLayer(layer);
+            }
         });
 
-        return () => {
-            map.dispose();
-        };
+        // Добавляем новые слои WMS
+        layers.forEach(layerName => {
+            const tileWMS = new TileWMS({
+                url: source,
+                params: { 'LAYERS': layerName, 'TILED': true },
+                serverType: 'geoserver'
+            });
+            const tileLayer = new TileLayer({ source: tileWMS, visible: layerVisibility[layerName] });
+            map.addLayer(tileLayer);
+        });
     };
 
     const toggleDarkMap = () => {
@@ -89,22 +97,21 @@ const GeoPortal = () => {
         setSelectedSource(event.target.value);
     };
 
-    const updateWmsLayers = () => {
-        setMapLayers(prevLayers => {
-            return prevLayers.map(layer => {
-                layer.setVisible(!darkMap);
-                return layer;
-            });
-        });
-    };
-
     const handleWmsLayerToggle = (layerName) => {
         const updatedVisibility = { ...layerVisibility, [layerName]: !layerVisibility[layerName] };
         setLayerVisibility(updatedVisibility);
+    };
 
-        const updatedLayers = mapLayers.filter(layer => layer instanceof TileLayer && layer.getSource() instanceof TileWMS && layer.getSource().getParams()['LAYERS'] === layerName);
-        updatedLayers.forEach(layer => layer.setVisible(updatedVisibility[layerName]));
-        setMapLayers(updatedLayers);
+    const updateLayerVisibility = () => {
+        const map = mapRef.current;
+        if (map) {
+            map.getLayers().forEach(layer => {
+                if (layer instanceof TileLayer && layer.getSource() instanceof TileWMS) {
+                    const layerName = layer.getSource().getParams()['LAYERS'];
+                    layer.setVisible(layerVisibility[layerName]);
+                }
+            });
+        }
     };
 
     return (
@@ -118,6 +125,21 @@ const GeoPortal = () => {
                             <option key={source} value={source}>{source}</option>
                         ))}
                     </FormControl>
+                    {selectedLayers.length > 0 && (
+                        <div>
+                            <h5>Выберите слои:</h5>
+                            {selectedLayers.map(layer => (
+                                <div key={layer}>
+                                    <input
+                                        type="checkbox"
+                                        checked={layerVisibility[layer]}
+                                        onChange={() => handleWmsLayerToggle(layer)}
+                                    />
+                                    <label>{layer}</label>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
                 <div className="map-container">
                     <div id="map"></div>

@@ -6,12 +6,12 @@ export default function App() {
 
     const socialSites = [
         {
-          link: "https://twitter.com/cincinnaticodes",
+          link: "https://m.facebook.com/people/Gis-Pro-Kg/100071721971114/",
           icon: "icon-social-facebook"
         },
         {
           link: "https://twitter.com/cincinnaticodes",
-          icon: "icon-social-twitter"
+          icon: "icon-social-whatsapp"
         },
         {
           link: "https://www.instagram.com/gispro.kg/?hl=ru",
@@ -53,7 +53,7 @@ export default function App() {
             </li>
             <li className="nav-item mb-2">
               <a href="/" className="title-menu-2">
-                Карты
+                Гео портал
               </a>
             </li>
           </ul>
@@ -87,12 +87,12 @@ export default function App() {
             <a className="title-menu-2"
               href="mailto:igispro.kgz@gmail.com"
             >
-              <p> igispro.kgz@gmail.com</p>
+              <p> gisprokg@gmail.com</p>
             </a>
             </li>
             <li className="nav-item mb-2">
               <a href="https://2gis.kg/bishkek/geo/15763234351132482?m=74.593827%2C42.851893%2F16" className="title-menu-2">
-              ул. Токтоналиева 4Б, 2 эт., каб 1 
+              ул. Токтоналиева 4Б, 2 эт.
               </a>
             </li>
             <li className="nav-item mb-2">
